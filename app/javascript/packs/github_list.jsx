@@ -43,15 +43,17 @@ class GithubList extends Component {
         "Content-Type": "application/json"
       },
       credentials: "same-origin"
-    }).then((response) => this.handleResponse(response))
+    }).then((response) => response.json()
+    ).then((response) => this.handleResponse(response))
   }
 
   handleResponse = (res) => {
     console.log(res)
+    console.log(res.body)
     if (res.message === 'success') {
       this.setState({
         successMessage: res.statusText + ' ' + res.details,
-        respositories: res.respositories
+        repositories: res.repositories
       });
     } else {
       this.setState({
