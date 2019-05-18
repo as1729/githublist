@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+ruby_string="ruby-2.5.5"
+gemset_name="githublist"
+
+rvm use "${ruby_string}@${gemset_name}"
