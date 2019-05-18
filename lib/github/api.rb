@@ -5,14 +5,9 @@ module Github
 
     UNAUTHENTICATED_REQUEST_HOURLY_RATE_LIMIT = 60.freeze
 
-    def initialize(service)
-      @service = service
-      @time_period = time_period
-    end
-
     def execute(path)
       if rate_limit_exceeded?
-        raise 'Exceeded Rate limit. Please wait'
+        raise 'Exceeded Rate limit. Please wait an hour and try again.'
         return
       end
 
